@@ -14,77 +14,133 @@
 
   <!-- Navegación -->
   <header>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#formulario">Formulario</a></li>
-      </ul>
-    </nav>
+    <div class="header-inner"> <!-- Centra y limita el ancho del contenido-->
+      <a href="#inicio" class="logo">Luis A. Arias<span class="accent-dot">.</span></a>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto y Formulario</a></li>          
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <!-- Contenido principal -->
   <main>
     <!-- Sección Principal / Hero -->
-    <section id="inicio">
-      <h1>Hola, soy Luis Alberto Arias Llaguno</h1>
-      <p>Desarrollador Web</p>
+    <section id="inicio">      
+      <h1>Hola, soy Luis Alberto<br>Arias Llaguno</h1>
+      <p class="hero-role">Desarrollador Web</p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+        <a href="#contacto" class="btn btn-secondary">Hablemos</a>
+      </div>
     </section>
 
     <!-- Sobre Mí -->
     <section id="sobre-mi">
-      <h2>Sobre mí</h2>
-      <p>Soy una persona que le gusta la programación, la ciencia de datos y la tecnologia .</p>
-      <img src="images/luis.jpeg" alt="Luis">
-      <p>Tengo un perro llamado roy que es raza welsh corgi pembroke.</p>
-      <img src="images/roy.jpg" alt="Roy">
+      <div class="sobre-mi-col-texto">
+        <h2>Sobre mí</h2>
+        <p>Soy una persona que le gusta la programación, la ciencia de datos y la tecnologia. Tengo un perro llamado <strong class="text-accent">Roy</strong> que es raza welsh corgi pembroke.</p>
+        
+        <!-- Lista de etiquetas/chips redondeados de especialidades -->
+        <div class="chips-list">
+          <span class="chip">Desarrollo web</span>
+          <span class="chip">Ciencia de datos</span>
+          <span class="chip">Visualización</span>
+        </div>
+      </div>
+
+      <!-- Carrusel de imágenes -->
+      <div class="carousel-wrapper">
+        <div class="carousel" id="carousel">
+          <!-- Pista de diapositivas superpuestas con transición suave de opacidad -->
+          <div class="carousel-track">
+            <div class="carousel-slide active">
+              <img src="images/roy.jpg" alt="Roy">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/luis.jpeg" alt="Luis">
+            </div>
+          </div>
+
+          <!-- Botones de control lateral (anterior / siguiente) -->
+          <button class="carousel-arrow prev" id="prevBtn" aria-label="Anterior">&#8249;</button>
+          <button class="carousel-arrow next" id="nextBtn" aria-label="Siguiente">&#8250;</button>
+
+          <!-- Indicadores de puntos inferiores (dots) -->
+          <div class="carousel-dots" id="carouselDots">
+            <button class="dot active" aria-label="Foto 1"></button>
+            <button class="dot" aria-label="Foto 2"></button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Proyectos -->
     <section id="proyectos">
-      <h2>Mis Proyectos</h2>
+      <div class="section-heading-row">
+        <h2>Mis Proyectos</h2>
+        <span class="heading-aside">Selección reciente</span>
+      </div>
       <div class="proyecto-card">
         <h3>Proyecto 1</h3>
         <p>Descripción del proyecto.</p>
       </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>Escríbeme a: <a href="mailto:luisariasllaguno@gmail.com">luisariasllaguno@gmail.com</a></p>
-    </section>
+    <!-- Contacto y Formulario -->
+    <div class="contact-form-layout">
+      <!-- Contacto -->
+      <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Escríbeme a: <a href="mailto:luisariasllaguno@gmail.com" class="contact-email">luisariasllaguno@gmail.com</a></p>
+        <a href="mailto:luisariasllaguno@gmail.com" class="contact-link-arrow">Enviar correo directo &rarr;</a>
+      </section>
 
       <!-- Formulario -->
-    <section id="formulario">
-      <h2>Formulario</h2>
-      <form action="enviar.php" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+      <section id="formulario">
+        <h2>Formulario</h2>
+        <form action="enviar.php" method="POST">
+          <div class="form-field">
+            <label for="nombre">NOMBRE</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
 
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" required>
-        
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="2" required></textarea>
+          <div class="form-field">
+            <label for="correo">CORREO ELECTRÓNICO</label>
+            <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required>
+          </div>
 
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
+          <div class="form-field">
+            <label for="mensaje">MENSAJE</label>
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+          </div>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </div>
   </main>
 
-    <!-- Pie de página -->
-    <footer>
-      <h2>Mi github</h2>
-      <ul>
-        <li><a href="https://github.com/luiselodeon">Github</a></li>
-        <li><a href="https://github.com/luiselodeon/Actividad-4-HTML">Liga a este repositorio</a></li>
+  <!-- Pie de página -->
+  <footer>
+    <div class="footer-card">
+      <div class="footer-brand">
+        <h2>Luis A. Arias<span class="accent-dot">.</span></h2>
+        <p>Desarrollo web &middot; Ciencia de datos</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/luiselodeon" target="_blank" rel="noopener noreferrer">Github</a></li>
+        <li><a href="https://github.com/luiselodeon/Actividad-4-HTML" target="_blank" rel="noopener noreferrer">Liga a este repositorio</a></li>        
       </ul>
-    </footer>
+    </div>    
+  </footer>
 
-    <script src="script.js"></script>
+  <!-- Script para la interactividad del carrusel de imágenes -->
+  <script src="script.js"></script>
 </body>
 
 </html>

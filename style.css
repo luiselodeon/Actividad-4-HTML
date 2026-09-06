@@ -1,0 +1,827 @@
+/* 
+   PORTAFOLIO - LUIS ALBERTO ARIAS LLAGUNO
+   **Este archivo se creó usando Inteligencia Artificial**
+*/
+
+/* --------------------------------------------------------------------------
+   IMPORTACIÓN DE TIPOGRAFÍAS (Google Fonts)
+   - Outfit: Fuente sans-serif geométrica para títulos de alto impacto.
+   - Plus Jakarta Sans: Fuente moderna y legible para textos y párrafos.
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES DE DISEÑO (Design Tokens)
+   Definición centralizada de colores, gradientes, sombras, bordes y tipografías.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta Base y Fondo */
+  --cream: #FAF6F0;                  /* Fondo beige cálido claro oklch(0.975 0.014 75) */
+  --mist: #F3ECE2;                   /* Crema intermedio */
+  --surface-input: #FAF8F5;          /* Fondo suave para campos de formulario */
+  --white: #FFFFFF;                  /* Blanco para tarjetas y elementos destacados */
+
+  /* Colores de Acento Escarlata */
+  --scarlet: #B81424;                /* Escarlata vibrante oklch(0.58 0.22 27) */
+  --crimson: #8C0E1B;                /* Carmesí profundo oklch(0.44 0.17 23) */
+  --coral: #E0533C;                  /* Coral oklch(0.7 0.17 32) */
+  --scarlet-soft: rgba(184, 20, 36, 0.08);
+  --scarlet-glow: rgba(184, 20, 36, 0.35);
+
+  /* Gradientes y Sombras de prueba.css */
+  --gradient-scarlet: linear-gradient(135deg, #C1121F 0%, #8C0E1B 100%);
+  --shadow-scarlet: 0 12px 28px -8px rgba(184, 20, 36, 0.45);
+  --shadow-card: 0 18px 45px -12px rgba(90, 55, 45, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02);
+  --shadow-hover: 0 24px 50px -10px rgba(90, 55, 45, 0.1), 0 4px 12px rgba(0, 0, 0, 0.03);
+
+  /* Texto y Neutros */
+  --ink: #261B1C;                    /* Carbón café cálido para títulos oklch(0.26 0.03 25) */
+  --text-body: #615652;              /* Gris cálido para párrafos */
+  --text-muted: #8E827C;             /* Gris secundario para etiquetas */
+  --border-light: rgba(70, 45, 35, 0.06);
+
+  /* Tipografía */
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Curvaturas y Radios */
+  --radius-sm: 12px;                 /* Esquinas de inputs y botones pequeños */
+  --radius-md: 20px;                 /* Esquinas de tarjetas secundarias */
+  --radius-lg: 32px;                 /* Curvatura amplia para las grandes tarjetas principales */
+  --radius-pill: 9999px;             /* Curvatura completa tipo cápsula/píldora */
+
+  /* Transición estándar para animaciones suaves */
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET Y ESTILOS GLOBALES
+   Garantiza coherencia de márgenes, modelo de caja y renderizado en navegadores.
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;            /* Incluye padding y border en el ancho total */
+}
+
+html {
+  scroll-behavior: smooth;           /* Desplazamiento suave al hacer clic en los enlaces internos */
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);    /* Fondo general beige cálido */
+  color: var(--text-body);
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;                /* Evita barras de desplazamiento horizontal accidentales */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Clases de texto utilitarias para resaltar palabras clave */
+.text-accent,
+.text-scarlet {
+  color: var(--scarlet);
+  font-weight: 600;
+}
+
+.accent-dot {
+  color: var(--scarlet);             /* Punto rojo escarlata del logotipo y títulos */
+}
+
+/* --------------------------------------------------------------------------
+   3. CABECERA Y BARRA DE NAVEGACIÓN (Header)
+   Permanece fija en la parte superior con un degradado que se fusiona con el fondo.
+   -------------------------------------------------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1.25rem 1.5rem 0.5rem;
+  background: linear-gradient(180deg, var(--cream) 80%, rgba(250, 246, 240, 0) 100%);
+}
+
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Logotipo personal a la izquierda */
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  transition: opacity var(--transition);
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
+
+/* Cápsula de navegación flotante */
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 20px rgba(70, 45, 35, 0.05);
+  border: 1px solid var(--border-light);
+  gap: 0.25rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-body);
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition);
+  display: inline-block;
+}
+
+nav ul li a:hover {
+  color: var(--ink);
+  background-color: var(--mist);
+}
+
+/* Botón destacado del menú de navegación (si se requiere enlace destacado) */
+nav ul li a.nav-cta {
+  background: var(--gradient-scarlet);
+  color: var(--white);
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(184, 20, 36, 0.35);
+}
+
+nav ul li a.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(184, 20, 36, 0.45);
+  color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   4. CONTENEDOR PRINCIPAL (Main)
+   Centra las secciones y establece una separación vertical equilibrada.
+   -------------------------------------------------------------------------- */
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;                         /* Espaciado generoso entre secciones */
+}
+
+/* --------------------------------------------------------------------------
+   5. SECCIÓN INICIO / HERO (#inicio)
+   Presentación tipográfica limpia directamente sobre el fondo beige.
+   -------------------------------------------------------------------------- */
+#inicio {
+  padding: 2.5rem 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+/* Badge con punto indicador */
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--white);
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-body);
+  box-shadow: 0 3px 12px rgba(70, 45, 35, 0.04);
+  border: 1px solid var(--border-light);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--scarlet);
+  box-shadow: 0 0 0 3px rgba(184, 20, 36, 0.2);
+}
+
+#inicio h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 5.8vw, 4.4rem); /* Tamaño fluido según el ancho de pantalla */
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: -1.2px;
+}
+
+#inicio .hero-role,
+#inicio > p {
+  font-size: 1.22rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  max-width: 680px;
+}
+
+/* Botones en píldora */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+/* Botón primario con gradiente escarlata */
+.btn-primary {
+  background: var(--gradient-scarlet);
+  color: var(--white);
+  box-shadow: var(--shadow-scarlet);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -6px rgba(184, 20, 36, 0.55);
+}
+
+/* Botón secundario en blanco con borde sutil */
+.btn-secondary {
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 4px 15px rgba(70, 45, 35, 0.05);
+  border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(70, 45, 35, 0.08);
+  background: #FFFDFC;
+}
+
+/* --------------------------------------------------------------------------
+   6. SECCIÓN SOBRE MÍ (#sobre-mi)
+   Tarjeta blanca con esquinas curvas de 32px y estructura a 2 columnas.
+   -------------------------------------------------------------------------- */
+#sobre-mi {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+  display: grid;
+  grid-template-columns: 1fr 1fr;    /* Columna de texto + Columna de carrusel */
+  gap: 3.5rem;
+  align-items: center;
+}
+
+#sobre-mi h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 1.25rem;
+}
+
+#sobre-mi p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 2rem;
+}
+
+/* Chips / Badges en formato píldora */
+.chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.chip {
+  background: var(--surface-input);
+  border: 1px solid var(--border-light);
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 6px rgba(70, 45, 35, 0.02);
+}
+
+/* --------------------------------------------------------------------------
+   7. CARRUSEL INTERACTIVO DE IMÁGENES
+   Muestra las imágenes de Luis y Roy con transiciones fluidas de opacidad.
+   -------------------------------------------------------------------------- */
+.carousel-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 330px;
+  border-radius: 26px;               /* Esquinas redondeadas de la imagen */
+  overflow: hidden;
+  box-shadow: 0 16px 36px -10px rgba(70, 45, 35, 0.12);
+  background-color: var(--mist);
+}
+
+.carousel-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Cada diapositiva se superpone y se revela mediante opacidad */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: scale(1.03);            /* Ligero zoom out al activarse */
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                 /* Ajusta la foto sin deformarla */
+  object-position: center;
+  display: block;
+}
+
+/* Flechas flotantes de control anterior / siguiente */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--ink);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all var(--transition);
+  z-index: 5;
+  user-select: none;
+}
+
+.carousel-arrow:hover {
+  background: var(--white);
+  color: var(--scarlet);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-arrow.prev {
+  left: 14px;
+}
+
+.carousel-arrow.next {
+  right: 14px;
+}
+
+/* Puntos indicadores inferiores del carrusel */
+.carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.carousel-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  padding: 0;
+}
+
+/* Indicador activo: se ensancha y toma el color escarlata */
+.carousel-dots .dot.active {
+  background: var(--scarlet);
+  width: 22px;
+  border-radius: 5px;
+}
+
+/* --------------------------------------------------------------------------
+   8. SECCIÓN PROYECTOS (#proyectos)
+   Tarjeta blanca que presenta el proyecto con elevación suave al hover.
+   -------------------------------------------------------------------------- */
+#proyectos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+#proyectos h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+}
+
+.heading-aside {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.proyecto-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2.8rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+  transition: all var(--transition);
+}
+
+.proyecto-card:hover {
+  transform: translateY(-3px);       /* Elevación sutil al interactuar */
+  box-shadow: var(--shadow-hover);
+}
+
+.proyecto-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+
+.proyecto-card p {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   9. SECCIONES CONTACTO Y FORMULARIO (.contact-form-layout)
+   Tarjeta blanca unificada que organiza la información y los campos del formulario.
+   -------------------------------------------------------------------------- */
+.contact-form-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr; /* Distribución equilibrada entre info y formulario */
+  gap: 2.5rem;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+}
+
+#contacto,
+#formulario {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+}
+
+#contacto h2,
+#formulario h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 1.25rem;
+}
+
+#contacto p {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 1.75rem;
+}
+
+/* Enlace de correo destacado en escarlata */
+.contact-email {
+  display: inline-block;
+  color: var(--scarlet);
+  font-weight: 700;
+  font-size: 1.18rem;
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+  transition: opacity var(--transition);
+}
+
+.contact-email:hover {
+  opacity: 0.85;
+}
+
+/* Enlace complementario con flecha y línea inferior */
+.contact-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 2px;
+  transition: all var(--transition);
+}
+
+.contact-link-arrow:hover {
+  color: var(--scarlet);
+  border-bottom-color: var(--scarlet);
+  gap: 0.6rem;
+}
+
+/* Estilos de los campos de entrada del formulario */
+#formulario form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+#formulario label {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;         /* Etiquetas en mayúsculas estilo minimalista */
+}
+
+#formulario input,
+#formulario textarea {
+  width: 100%;
+  background: var(--surface-input);  /* Fondo crema suave */
+  border: 1.5px solid rgba(70, 45, 35, 0.07);
+  border-radius: 14px;
+  padding: 0.95rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  color: var(--ink);
+  transition: all var(--transition);
+  outline: none;
+}
+
+#formulario input::placeholder,
+#formulario textarea::placeholder {
+  color: #A39690;
+  font-weight: 400;
+}
+
+/* Efecto de foco: resplandor escarlata */
+#formulario input:focus,
+#formulario textarea:focus {
+  background: var(--white);
+  border-color: var(--scarlet);
+  box-shadow: 0 0 0 3.5px rgba(184, 20, 36, 0.15);
+}
+
+#formulario textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* Botón de envío con gradiente escarlata */
+#formulario button[type="submit"] {
+  align-self: flex-start;
+  width: 100%;
+  background: var(--gradient-scarlet);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.95rem 2.2rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-scarlet);
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-top: 0.5rem;
+}
+
+#formulario button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -6px rgba(184, 20, 36, 0.55);
+}
+
+#formulario button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   10. PIE DE PÁGINA (Footer)
+   Tarjeta flotante con marca personal y botones en píldora a redes / repositorios.
+   -------------------------------------------------------------------------- */
+footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.footer-card {
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.8rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-brand h2 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+  margin-bottom: 0.2rem;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.footer-links li a {
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface-input);
+  border: 1px solid var(--border-light);
+  padding: 0.55rem 1.35rem;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition);
+  display: inline-block;
+}
+
+.footer-links li a:hover {
+  background: var(--white);
+  color: var(--scarlet);
+  border-color: rgba(184, 20, 36, 0.25);
+  box-shadow: 0 4px 14px rgba(70, 45, 35, 0.08);
+  transform: translateY(-1px);
+}
+
+.copyright {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   11. ADAPTABILIDAD RESPONSIVA (Media Queries)
+   Ajustes de layout para tabletas y dispositivos móviles.
+   -------------------------------------------------------------------------- */
+/* Tabletas y pantallas intermedias */
+@media (max-width: 860px) {
+  #sobre-mi {
+    grid-template-columns: 1fr;       /* Pasa a una sola columna */
+    padding: 2.5rem 1.8rem;
+    gap: 2.5rem;
+  }
+
+  .carousel {
+    max-width: 100%;
+    height: 280px;
+  }
+
+  .contact-form-layout {
+    grid-template-columns: 1fr;       /* Pasa a una sola columna */
+    padding: 2.5rem 1.8rem;
+    gap: 2.5rem;
+  }
+
+  .footer-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.8rem;
+  }
+}
+
+/* Teléfonos móviles */
+@media (max-width: 640px) {
+  header {
+    padding: 1rem 1rem 0;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding: 0.5rem;
+  }
+
+  nav ul li a {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.85rem;
+  }
+
+  main {
+    padding: 1.5rem 1rem 3.5rem;
+    gap: 3rem;
+  }
+
+  #inicio {
+    padding: 1.5rem 0 0.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
