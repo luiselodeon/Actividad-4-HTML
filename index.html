@@ -1,67 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8"> <!-- Esto sirve para que el navegador sepa que se está usando UTF-8 -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Esto sirve para que la página se vea bien en dispositivos móviles -->
-        <title>Mi portafolio</title>
-        <link rel="icon" type="image/png" href="images/folder.png"> <!-- Esto es el ícono de la pestaña --> 
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
 
-        <!-- Navegación -->
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#sobre-mi">Sobre mí</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </header>
+<head>
+  <meta charset="UTF-8"> <!-- Esto sirve para que el navegador sepa que se está usando UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Esto sirve para que la página se vea bien en dispositivos móviles -->
+  <title>Mi portafolio</title>
+  <link rel="icon" type="image/png" href="images/folder.png"> <!-- Esto es el ícono de la pestaña -->
+  <link rel="stylesheet" href="style.css">
+</head>
 
-        <!-- Contenido principal -->
-        <main>
-            <!-- Sección Principal / Hero -->
-            <section id="inicio">
-                <h1>Hola, soy Luis Alberto Arias Llaguno</h1>
-                <p>Desarrollador Web</p>
-            </section>
+<body>
 
-            <!-- Sobre Mí -->
-            <section id="sobre-mi">
-                <h2>Sobre mí</h2>
-                <p>Soy una persona que le gusta la programación, la ciencia de datos y la tecnologia .</p>
-                
-            </section>
+  <!-- Navegación -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#formulario">Formulario</a></li>
+      </ul>
+    </nav>
+  </header>
 
-            <!-- Proyectos -->
-            <section id="proyectos">
-                <h2>Mis Proyectos</h2>
-                <div class="proyecto-card">
-                    <h3>Proyecto 1</h3>
-                    <p>Descripción del proyecto.</p>
-                </div>
-            </section>
+  <!-- Contenido principal -->
+  <main>
+    <!-- Sección Principal / Hero -->
+    <section id="inicio">
+      <h1>Hola, soy Luis Alberto Arias Llaguno</h1>
+      <p>Desarrollador Web</p>
+    </section>
 
-            <!-- Contacto -->
-            <section id="contacto">
-                <h2>Contacto</h2>
-                <p>Escríbeme a: <a href="mailto:luisariasllaguno@gmail.com">luisariasllaguno@gmail.com</a></p>
-            </section>
-        </main>
+    <!-- Sobre Mí -->
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p>Soy una persona que le gusta la programación, la ciencia de datos y la tecnologia .</p>
+      <img src="images/luis.jpeg" alt="Luis">
+      <p>Tengo un perro llamado roy que es raza welsh corgi pembroke.</p>
+      <img src="images/roy.jpg" alt="Roy">
+    </section>
 
-        <!-- Pie de página -->
-        <footer>
-            <p>Luis Alberto Arias Llaguno 2026</p>
-            <h2>Mi github</h2>
-            <ul>
-                <li><a href="https://github.com/luiselodeon">Github</a></li>
-                <li><a href="https://github.com/luiselodeon/Actividad-4-HTML">Liga a este repositorio</a></li>
-            </ul>
-        </footer>
+    <!-- Proyectos -->
+    <section id="proyectos">
+      <h2>Mis Proyectos</h2>
+      <div class="proyecto-card">
+        <h3>Proyecto 1</h3>
+        <p>Descripción del proyecto.</p>
+      </div>
+    </section>
 
-        <script src="script.js"></script>
-    </body>
+    <!-- Contacto -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>Escríbeme a: <a href="mailto:luisariasllaguno@gmail.com">luisariasllaguno@gmail.com</a></p>
+    </section>
+
+      <!-- Formulario -->
+    <section id="formulario">
+      <h2>Formulario</h2>
+      <form action="enviar.php" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+        
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="2" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <h2>Mi github</h2>
+      <ul>
+        <li><a href="https://github.com/luiselodeon">Github</a></li>
+        <li><a href="https://github.com/luiselodeon/Actividad-4-HTML">Liga a este repositorio</a></li>
+      </ul>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
 </html>
