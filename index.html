@@ -7,7 +7,7 @@
   <!-- Esto sirve para que la página se vea bien en dispositivos móviles -->
   <title>Mi portafolio</title>
   <link rel="icon" type="image/png" href="images/folder.png"> <!-- Esto es el ícono de la pestaña -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"> <!-- Esto es lo que hace que use los diseños de style.css -->
 </head>
 
 <body>
@@ -85,9 +85,24 @@
         <h2>Mis Proyectos</h2>
         <span class="heading-aside">Selección reciente</span>
       </div>
-      <div class="proyecto-card">
-        <h3>Proyecto 1</h3>
-        <p>Descripción del proyecto.</p>
+      <div class="proyectos-layout">
+        <div class="proyectos-main">
+          <div class="proyecto-card">
+            <h3>Proyecto 1</h3>
+            <p>Descripción del proyecto.</p>
+          </div>
+        </div>
+
+        <!-- Sidebar de proyectos -->
+        <aside class="sidebar">
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>HTML5 / CSS</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Machine Learning</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
