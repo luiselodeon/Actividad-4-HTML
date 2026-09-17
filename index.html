@@ -120,18 +120,34 @@
         <h2>Formulario</h2>
         <form action="enviar.php" method="POST">
           <div class="form-field">
-            <label for="nombre">NOMBRE</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            <label for="nombre">NOMBRE COMPLETO</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
           </div>
 
           <div class="form-field">
             <label for="correo">CORREO ELECTRÓNICO</label>
-            <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required>
+            <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required> <!-- Se agrega el required para que sea obligatorio -->
           </div>
 
           <div class="form-field">
-            <label for="mensaje">MENSAJE</label>
-            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+            <label for="mensaje">EDAD</label>
+            <input type="number" id="mensaje" name="mensaje" placeholder="Tu edad" required> <!-- Se agrega el required para que sea obligatorio -->
+          </div>
+
+          <!-- Checkbox -->
+          <div class="form-field form-field-checkbox">
+            <input type="checkbox" id="suscribir" name="suscribir" value="si">
+            <label for="suscribir">¿Quieres que te envíen correos sobre esto?</label>
+          </div>
+
+          <!-- Lista desplegable  -->
+          <div class="form-field">
+            <label for="estado">Actualmente eres:</label>
+            <select id="estado" name="estado" required> <!-- Se agrega el required para que sea obligatorio -->
+              <option value="estudiante">Estudiante</option>
+              <option value="trabajador">Trabajador</option>
+              <option value="otro">Otro</option>
+            </select>
           </div>
 
           <button type="submit">Enviar</button>

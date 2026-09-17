@@ -704,7 +704,8 @@ main {
   text-transform: uppercase;         /* Etiquetas en mayúsculas estilo minimalista */
 }
 
-#formulario input,
+/* Entradas de texto y números */
+#formulario input:not([type="checkbox"]):not([type="radio"]),
 #formulario textarea {
   width: 100%;
   background: var(--surface-input);  /* Fondo crema suave */
@@ -718,14 +719,14 @@ main {
   outline: none;
 }
 
-#formulario input::placeholder,
+#formulario input:not([type="checkbox"]):not([type="radio"])::placeholder,
 #formulario textarea::placeholder {
   color: #A39690;
   font-weight: 400;
 }
 
 /* Efecto de foco: resplandor escarlata */
-#formulario input:focus,
+#formulario input:not([type="checkbox"]):not([type="radio"]):focus,
 #formulario textarea:focus {
   background: var(--white);
   border-color: var(--scarlet);
@@ -735,6 +736,136 @@ main {
 #formulario textarea {
   resize: vertical;
   min-height: 110px;
+}
+
+/* --------------------------------------------------------------------------
+   ESTILOS PARA LISTA DESPLEGABLE (Select) Y CASILLA DE VERIFICACIÓN (Checkbox)
+   Mantienen la coherencia con la paleta cálida, bordes suaves y detalles escarlata.
+   -------------------------------------------------------------------------- */
+
+/* Lista desplegable (Select) */
+#formulario select {
+  width: 100%;
+  background-color: var(--surface-input);
+  border: 1.5px solid rgba(70, 45, 35, 0.07);
+  border-radius: 14px;
+  padding: 0.95rem 2.8rem 0.95rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all var(--transition);
+  outline: none;
+  /* Flecha personalizada escarlata */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23B81424' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1.2rem) center;
+  background-size: 1rem;
+}
+
+#formulario select:hover {
+  background-color: #FFFDFC;
+  border-color: rgba(184, 20, 36, 0.3);
+}
+
+#formulario select:focus {
+  background-color: var(--white);
+  border-color: var(--scarlet);
+  box-shadow: 0 0 0 3.5px rgba(184, 20, 36, 0.15);
+}
+
+#formulario select option {
+  background-color: var(--white);
+  color: var(--ink);
+  padding: 0.6rem;
+  font-family: var(--font-body);
+}
+
+/* Casilla de verificación (Checkbox) */
+.form-field-checkbox,
+.form-field:has(input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0.35rem 0;
+  cursor: pointer;
+}
+
+#formulario input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  background-color: var(--surface-input);
+  border: 1.8px solid rgba(70, 45, 35, 0.2);
+  border-radius: 7px;
+  cursor: pointer;
+  display: inline-grid;
+  place-content: center;
+  margin: 0;
+  padding: 0;
+  transition: all var(--transition);
+  outline: none;
+  position: relative;
+}
+
+#formulario input[type="checkbox"]:hover {
+  border-color: var(--scarlet);
+  background-color: var(--white);
+  transform: scale(1.05);
+}
+
+#formulario input[type="checkbox"]:focus-visible {
+  border-color: var(--scarlet);
+  box-shadow: 0 0 0 3.5px rgba(184, 20, 36, 0.18);
+}
+
+#formulario input[type="checkbox"]:checked {
+  background: var(--gradient-scarlet);
+  border-color: var(--scarlet);
+  box-shadow: 0 4px 12px rgba(184, 20, 36, 0.35);
+}
+
+/* Palomita blanca personalizada dentro del checkbox */
+#formulario input[type="checkbox"]::after {
+  content: "";
+  width: 5px;
+  height: 10px;
+  border: solid var(--white);
+  border-width: 0 2.2px 2.2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 2px;
+}
+
+#formulario input[type="checkbox"]:checked::after {
+  transform: rotate(45deg) scale(1);
+}
+
+/* Etiqueta asociada al checkbox (más legible y con comportamiento clickeable) */
+.form-field-checkbox label,
+.form-field:has(input[type="checkbox"]) label,
+#formulario input[type="checkbox"] + label {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-transform: none;              /* Mantiene minúsculas para legibilidad de pregunta */
+  letter-spacing: normal;
+  color: var(--text-body);
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.45;
+  transition: color var(--transition);
+}
+
+.form-field-checkbox:hover label,
+.form-field:has(input[type="checkbox"]):hover label,
+#formulario input[type="checkbox"]:hover + label {
+  color: var(--ink);
 }
 
 /* Botón de envío con gradiente escarlata */
