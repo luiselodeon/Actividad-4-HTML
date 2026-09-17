@@ -118,7 +118,8 @@
       <!-- Formulario -->
       <section id="formulario">
         <h2>Formulario</h2>
-        <form action="enviar.php" method="POST">
+        <form action="enviar.php" method="POST" onsubmit="validarFormulario(event)" novalidate> <!-- novalidate para no enviarlo si no está completo y se usa el método para validar el formulario -->
+          
           <div class="form-field">
             <label for="nombre">NOMBRE COMPLETO</label>
             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
@@ -144,13 +145,14 @@
           <div class="form-field">
             <label for="estado">Actualmente eres:</label>
             <select id="estado" name="estado" required> <!-- Se agrega el required para que sea obligatorio -->
+              <option value="" disabled selected hidden>Selecciona una opción...</option>
               <option value="estudiante">Estudiante</option>
               <option value="trabajador">Trabajador</option>
               <option value="otro">Otro</option>
             </select>
           </div>
 
-          <button type="submit">Enviar</button>
+          <button type="submit" id="btnEnviar" onclick="validarFormulario(event)">Enviar</button>
         </form>
       </section>
     </div>

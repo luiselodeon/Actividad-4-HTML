@@ -144,3 +144,41 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inicializa el temporizador automático al cargar la página
   startAutoSlide();
 });
+
+// ------------------------------------------------------------------------
+// 7. VALIDACIÓN DEL FORMULARIO
+// ------------------------------------------------------------------------
+/**
+ * Valida los campos requeridos y formatos antes de procesar el formulario.
+ * @param {Event} event - Evento del botón o del formulario
+ */
+function validarFormulario(event) {
+  if (event) event.preventDefault(); // Evita el envío para validar primero con JavaScript
+
+  const nombre = document.getElementById('nombre').value.trim();
+  const correo = document.getElementById('correo').value.trim();
+  const inputEdad = document.getElementById('mensaje');
+  const edad = Number(inputEdad.value);
+  const estado = document.getElementById('estado').value;
+  const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para formato de correo
+
+  // Validación de Nombre: obligatorio y más de 3 caracteres
+  if (!nombre) return alert('Por favor, ingresa tu nombre completo.');
+  if (nombre.length <= 3) return alert('El nombre no puede tener 3 o menos caracteres.');
+
+  // Validación de Correo: obligatorio y formato válido (ej. usuario@dominio.com)
+  if (!correo) return alert('Por favor, ingresa tu correo electrónico.');
+  if (!regexCorreo.test(correo)) return alert('El formato de correo electrónico no es válido.');
+
+  // Validación de Edad: obligatoria, mayor a 15 y menor a 100 años
+  if (!inputEdad.value.trim()) return alert('Por favor, ingresa tu edad.');
+  if (edad <= 15 || edad >= 100) return alert('La edad debe ser mayor a 15 y menor a 100 años.');
+
+  // Validación de Lista desplegable: selección obligatoria
+  if (!estado) return alert('Por favor, selecciona a qué te dedicas actualmente.');
+
+  // Alerta final requerida al completarse exitosamente
+  alert('Formulario completado');
+  document.querySelector('#formulario form').reset(); // Limpia el formulario
+}
+
