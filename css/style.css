@@ -1055,3 +1055,168 @@ footer {
     width: 100%;
   }
 }
+
+/* --------------------------------------------------------------------------
+   12. FUNCIONALIDADES INTERACTIVAS ADICIONALES (Paso 2)
+   - Modo Oscuro (Darkmode)
+   - Transiciones para imagenes de carrusel (.img-roy)
+   - Widget de reloj en tiempo real
+   - Conmutador de tema
+   - Navegacion activa y estados de formulario
+   -------------------------------------------------------------------------- */
+
+/* Soporte de transicion suave para la animacion hover y escala */
+.img-roy {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Estado activo en la navegacion */
+nav ul li a.active {
+  color: var(--ink);
+  background-color: var(--mist);
+  font-weight: 600;
+}
+
+/* Widget de reloj en tiempo real */
+.clock-widget {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1.1rem;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  box-shadow: 0 3px 12px rgba(70, 45, 35, 0.04);
+}
+
+.clock-widget .clock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--scarlet);
+  box-shadow: 0 0 0 3px rgba(184, 20, 36, 0.2);
+  display: inline-block;
+  animation: clockPulse 1.5s infinite;
+}
+
+@keyframes clockPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#reloj,
+.clock-time {
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Boton conmutador de tema (Modo Oscuro) */
+.theme-toggle-btn {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 2px 8px rgba(70, 45, 35, 0.04);
+  transition: all var(--transition);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--surface-input);
+  border-color: rgba(184, 20, 36, 0.3);
+  color: var(--scarlet);
+  transform: translateY(-1px);
+}
+
+/* Estilo para campo erroneo animado por jQuery */
+.input-error {
+  border-color: var(--scarlet) !important;
+  box-shadow: 0 0 0 3.5px rgba(184, 20, 36, 0.25) !important;
+}
+
+/* Variables y reglas para Modo Oscuro */
+body.dark-mode,
+body.dark-theme {
+  --cream: #141113;
+  --mist: #1E1A1C;
+  --surface-input: #231E20;
+  --white: #1B1719;
+  --ink: #F7F2EE;
+  --text-body: #C5BCB6;
+  --text-muted: #958B86;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --shadow-card: 0 18px 45px -12px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 24px 50px -10px rgba(0, 0, 0, 0.65), 0 4px 12px rgba(0, 0, 0, 0.4);
+  background-color: var(--cream);
+  color: var(--text-body);
+}
+
+body.dark-mode header,
+body.dark-theme header {
+  background: linear-gradient(180deg, var(--cream) 80%, rgba(20, 17, 19, 0) 100%);
+}
+
+body.dark-mode nav ul li a.active,
+body.dark-theme nav ul li a.active {
+  color: var(--white);
+  background-color: rgba(184, 20, 36, 0.2);
+  border: 1px solid rgba(184, 20, 36, 0.35);
+}
+
+body.dark-mode .btn-secondary,
+body.dark-theme .btn-secondary {
+  background: var(--surface-input);
+  color: var(--ink);
+  border-color: var(--border-light);
+}
+
+body.dark-mode .btn-secondary:hover,
+body.dark-theme .btn-secondary:hover {
+  background: var(--mist);
+  color: var(--white);
+}
+
+body.dark-mode .carousel-arrow,
+body.dark-theme .carousel-arrow {
+  background: rgba(35, 30, 32, 0.85);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--ink);
+}
+
+body.dark-mode .carousel-arrow:hover,
+body.dark-theme .carousel-arrow:hover {
+  background: var(--white);
+  color: var(--scarlet);
+}
+
+body.dark-mode #formulario select option,
+body.dark-theme #formulario select option {
+  background-color: var(--white);
+  color: var(--ink);
+}
