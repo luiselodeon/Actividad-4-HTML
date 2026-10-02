@@ -106,10 +106,18 @@ header {
 .header-inner {
   max-width: 1080px;                /* Esto es la parte del ancho de la página */
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;   /* Esto es la parte de la alineación de la barra de navegación horizontalmente */
-  align-items: center;              /* Esto es la parte de la alineación de la barra de navegación verticalmente */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
   gap: 1rem;
+}
+
+.logo {
+  justify-self: start;
+}
+
+header nav {
+  justify-self: center;
 }
 
 /* Logotipo personal a la izquierda */
@@ -263,7 +271,7 @@ main {
 /* Botón primario con gradiente escarlata */
 .btn-primary {
   background: var(--gradient-scarlet);
-  color: var(--white);
+  color: #FFFFFF;
   box-shadow: var(--shadow-scarlet);
 }
 
@@ -1142,6 +1150,10 @@ nav ul li a.active {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  justify-self: end;
+  width: 135px;
+  text-align: center;
   gap: 0.45rem;
   box-shadow: 0 2px 8px rgba(70, 45, 35, 0.04);
   transition: all var(--transition);
@@ -1182,11 +1194,16 @@ body.dark-theme header {
   background: linear-gradient(180deg, var(--cream) 80%, rgba(20, 17, 19, 0) 100%);
 }
 
+body.dark-mode .btn-primary,
+body.dark-theme .btn-primary {
+  color: #FFFFFF !important;
+}
+
 body.dark-mode nav ul li a.active,
 body.dark-theme nav ul li a.active {
-  color: var(--white);
-  background-color: rgba(184, 20, 36, 0.2);
-  border: 1px solid rgba(184, 20, 36, 0.35);
+  color: #FFFFFF !important;
+  background: var(--gradient-scarlet);
+  box-shadow: 0 4px 14px rgba(184, 20, 36, 0.4);
 }
 
 body.dark-mode .btn-secondary,
@@ -1199,7 +1216,7 @@ body.dark-theme .btn-secondary {
 body.dark-mode .btn-secondary:hover,
 body.dark-theme .btn-secondary:hover {
   background: var(--mist);
-  color: var(--white);
+  color: var(--ink);
 }
 
 body.dark-mode .carousel-arrow,
@@ -1211,12 +1228,12 @@ body.dark-theme .carousel-arrow {
 
 body.dark-mode .carousel-arrow:hover,
 body.dark-theme .carousel-arrow:hover {
-  background: var(--white);
+  background: #FFFFFF;
   color: var(--scarlet);
 }
 
 body.dark-mode #formulario select option,
 body.dark-theme #formulario select option {
-  background-color: var(--white);
+  background-color: var(--surface-input);
   color: var(--ink);
 }

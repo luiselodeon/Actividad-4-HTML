@@ -5,7 +5,7 @@
   <meta charset="UTF-8"> <!-- Esto sirve para que el navegador sepa que se está usando UTF-8 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Esto sirve para que la página se vea bien en dispositivos móviles -->
-  <title>Mi portafolio</title>
+  <title>Mi portafolio - Inicio</title>
   <link rel="icon" type="image/png" href="images/folder.png"> <!-- Esto es el ícono de la pestaña -->
   <link rel="stylesheet" href="css/style.css"> <!-- Esto es lo que hace que use los diseños de style.css -->
 </head>
@@ -14,148 +14,42 @@
 
   <!-- Navegación -->
   <header>
-    <div class="header-inner"> <!-- Centra y limita el ancho del contenido-->
-      <a href="#inicio" class="logo">Luis A. Arias<span class="accent-dot">.</span></a>
+    <div class="header-inner">
+      <a href="index.html" class="logo">Luis A. Arias<span class="accent-dot">.</span></a>
       <nav>
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#sobre-mi">Sobre mí</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#contacto">Contacto y Formulario</a></li>          
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="pages/sobre-mi.html">Sobre mi</a></li>
+          <li><a href="pages/proyectos.html">Proyectos</a></li>
+          <li><a href="pages/contacto.html">Contacto</a></li>
+          <li><a href="pages/formulario.html">Formulario</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema">Modo Oscuro</button>
     </div>
   </header>
 
   <!-- Contenido principal -->
   <main>
-    <!-- Sección Principal / Hero -->
-    <section id="inicio">      
+    <!-- Seccion Principal / Hero -->
+    <section id="inicio">
+      <!-- Widget de Reloj en tiempo real -->
+      <div class="clock-widget" aria-label="Hora actual en tiempo real">
+        <span class="clock-dot"></span>
+        <span class="clock-time" id="reloj">--:--:--</span>
+      </div>
+
       <h1>Hola, soy Luis Alberto<br>Arias Llaguno</h1>
       <p class="hero-role">Desarrollador Web</p>
+      <p>
+        Bienvenido a mi portafolio profesional. Especializado en desarrollo frontend, analisis de datos y machine learning, así como Claude e Inteligencia Artificial.
+      </p>
+
       <div class="hero-actions">
-        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
-        <a href="#contacto" class="btn btn-secondary">Hablemos</a>
+        <a href="pages/proyectos.html" class="btn btn-primary">Ver proyectos</a>
+        <a href="pages/contacto.html" class="btn btn-secondary">Contacto</a>
       </div>
     </section>
-
-    <!-- Sobre Mí -->
-    <section id="sobre-mi">
-      <div class="sobre-mi-col-texto">
-        <h2>Sobre mí</h2>
-        <p>Soy una persona que le gusta la programación, la ciencia de datos y la tecnologia. Tengo un perro llamado <strong class="text-accent">Roy</strong> que es raza welsh corgi pembroke.</p>
-        
-        <!-- Lista de etiquetas/chips redondeados de especialidades -->
-        <div class="chips-list">
-          <span class="chip">Desarrollo web</span>
-          <span class="chip">Ciencia de datos</span>
-          <span class="chip">Visualización</span>
-        </div>
-      </div>
-
-      <!-- Carrusel de imágenes -->
-      <div class="carousel-wrapper">
-        <div class="carousel" id="carousel">
-          <!-- Pista de diapositivas superpuestas con transición suave de opacidad -->
-          <div class="carousel-track">
-            <div class="carousel-slide active">
-              <img src="images/roy.jpg" alt="Roy">
-            </div>
-            <div class="carousel-slide">
-              <img src="images/luis.jpeg" alt="Luis">
-            </div>
-          </div>
-
-          <!-- Botones de control lateral (anterior / siguiente) -->
-          <button class="carousel-arrow prev" id="prevBtn" aria-label="Anterior">&#8249;</button>
-          <button class="carousel-arrow next" id="nextBtn" aria-label="Siguiente">&#8250;</button>
-
-          <!-- Indicadores de puntos inferiores (dots) -->
-          <div class="carousel-dots" id="carouselDots">
-            <button class="dot active" aria-label="Foto 1"></button>
-            <button class="dot" aria-label="Foto 2"></button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Proyectos -->
-    <section id="proyectos">
-      <div class="section-heading-row">
-        <h2>Mis Proyectos</h2>
-        <span class="heading-aside">Selección reciente</span>
-      </div>
-      <div class="proyectos-layout">
-        <div class="proyectos-main">
-          <div class="proyecto-card">
-            <h3>Proyecto 1</h3>
-            <p>Descripción del proyecto.</p>
-          </div>
-        </div>
-
-        <!-- Sidebar de proyectos -->
-        <aside class="sidebar">
-          <h3>Tecnologías</h3>
-          <ul>
-            <li>HTML5 / CSS</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>Machine Learning</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Contacto y Formulario -->
-    <div class="contact-form-layout">
-      <!-- Contacto -->
-      <section id="contacto">
-        <h2>Contacto</h2>
-        <p>Escríbeme a: <a href="mailto:luisariasllaguno@gmail.com" class="contact-email">luisariasllaguno@gmail.com</a></p>
-        <a href="mailto:luisariasllaguno@gmail.com" class="contact-link-arrow">Enviar correo directo &rarr;</a>
-      </section>
-
-      <!-- Formulario -->
-      <section id="formulario">
-        <h2>Formulario</h2>
-        <form action="enviar.php" method="POST" onsubmit="validarFormulario(event)" novalidate> <!-- novalidate para no enviarlo si no está completo y se usa el método para validar el formulario -->
-          
-          <div class="form-field">
-            <label for="nombre">NOMBRE COMPLETO</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
-          </div>
-
-          <div class="form-field">
-            <label for="correo">CORREO ELECTRÓNICO</label>
-            <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required> <!-- Se agrega el required para que sea obligatorio -->
-          </div>
-
-          <div class="form-field">
-            <label for="mensaje">EDAD</label>
-            <input type="number" id="mensaje" name="mensaje" placeholder="Tu edad" required> <!-- Se agrega el required para que sea obligatorio -->
-          </div>
-
-          <!-- Checkbox -->
-          <div class="form-field form-field-checkbox">
-            <input type="checkbox" id="suscribir" name="suscribir" value="si">
-            <label for="suscribir">¿Quieres que te envíen correos sobre esto?</label>
-          </div>
-
-          <!-- Lista desplegable  -->
-          <div class="form-field">
-            <label for="estado">Actualmente eres:</label>
-            <select id="estado" name="estado" required> <!-- Se agrega el required para que sea obligatorio -->
-              <option value="" disabled selected hidden>Selecciona una opción...</option>
-              <option value="estudiante">Estudiante</option>
-              <option value="trabajador">Trabajador</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-
-          <button type="submit" id="btnEnviar" onclick="validarFormulario(event)">Enviar</button>
-        </form>
-      </section>
-    </div>
   </main>
 
   <!-- Pie de página -->
@@ -172,8 +66,9 @@
     </div>    
   </footer>
 
-  <!-- Script para la interactividad del carrusel de imágenes -->
-  <script src="script.js"></script>
+  <!-- Scripts: jQuery 3.7.1 y Script Principal Global -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
