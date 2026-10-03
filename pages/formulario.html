@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8"> <!-- Esto sirve para que el navegador sepa que se está usando UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Esto sirve para que la página se vea bien en dispositivos móviles -->
+  <title>Mi portafolio - Formulario</title>
+  <link rel="icon" type="image/png" href="../images/folder.png"> <!-- Esto es el ícono de la pestaña -->
+  <link rel="stylesheet" href="../css/style.css"> <!-- Esto es lo que hace que use los diseños de style.css -->
+</head>
+
+<body>
+
+  <!-- Navegación -->
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo">Luis A. Arias<span class="accent-dot">.</span></a>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="formulario.html" class="active">Formulario</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema">Modo Oscuro</button>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Tarjeta contenedora de formulario -->
+    <div class="formulario-card">
+      <section id="formulario">
+        <h2>Formulario</h2>
+        <form action="enviar.php" method="POST" novalidate>
+          <div class="form-field">
+            <label for="nombre">NOMBRE COMPLETO</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+            <span class="field-error-msg" id="msg-nombre"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="correo">CORREO ELECTRÓNICO</label>
+            <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required>
+            <span class="field-error-msg" id="msg-correo"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="mensaje">EDAD</label>
+            <input type="number" id="mensaje" name="mensaje" placeholder="Tu edad" required>
+            <span class="field-error-msg" id="msg-mensaje"></span>
+          </div>
+
+          <!-- Casilla de verificación (Checkbox) -->
+          <div class="form-field form-field-checkbox">
+            <input type="checkbox" id="suscribir" name="suscribir" value="si">
+            <label for="suscribir">¿Quieres que te envíen correos sobre esto?</label>
+          </div>
+
+          <!-- Lista desplegable (Select) -->
+          <div class="form-field">
+            <label for="estado">Actualmente eres:</label>
+            <select id="estado" name="estado" required>
+              <option value="" disabled selected hidden>Selecciona una opción...</option>
+              <option value="estudiante">Estudiante</option>
+              <option value="trabajador">Trabajador</option>
+              <option value="otro">Otro</option>
+            </select>
+            <span class="field-error-msg" id="msg-estado"></span>
+          </div>
+
+          <button type="submit" id="btnEnviar">Enviar</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <div class="footer-card">
+      <div class="footer-brand">
+        <h2>Luis A. Arias<span class="accent-dot">.</span></h2>
+        <p>Desarrollo web &middot; Ciencia de datos</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/luiselodeon" target="_blank" rel="noopener noreferrer">Github</a></li>
+        <li><a href="https://github.com/luiselodeon/Actividad-4-HTML" target="_blank" rel="noopener noreferrer">Liga a este repositorio</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts: jQuery 3.7.1, Script Global y Script de Validación del Formulario -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/formulario.js"></script>
+</body>
+
+</html>

@@ -780,6 +780,23 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
+  padding-left: 0.5rem;
+  transition: border-left 0.2s ease, padding 0.2s ease;
+}
+
+.field-error-msg {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--scarlet);
+  font-weight: 600;
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+
+body.dark-mode .field-error-msg,
+body.dark-theme .field-error-msg {
+  color: #FF6B7A;
 }
 
 #formulario label {
@@ -1368,4 +1385,22 @@ body.dark-mode .gallery-siblings .img-roy,
 body.dark-theme .gallery-siblings .img-roy {
   border-color: rgba(255, 255, 255, 0.12);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Tarjeta contenedora de formulario independiente */
+.formulario-card {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+}
+
+@media (max-width: 640px) {
+  .formulario-card {
+    padding: 2.2rem 1.6rem;
+  }
 }
