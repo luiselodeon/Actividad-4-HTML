@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8"> <!-- Esto sirve para que el navegador sepa que se está usando UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Esto sirve para que la página se vea bien en dispositivos móviles -->
+  <title>Mi portafolio - Proyectos</title>
+  <link rel="icon" type="image/png" href="../images/folder.png"> <!-- Esto es el ícono de la pestaña -->
+  <link rel="stylesheet" href="../css/style.css"> <!-- Esto es lo que hace que use los diseños de style.css -->
+</head>
+
+<body>
+
+  <!-- Navegación -->
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo">Luis A. Arias<span class="accent-dot">.</span></a>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="proyectos.html" class="active">Proyectos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="formulario.html">Formulario</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema">Modo Oscuro</button>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Proyectos -->
+    <section id="proyectos">
+      <div class="section-heading-row">
+        <h2>Mis Proyectos</h2>
+        <span class="heading-aside">Selección reciente</span>
+      </div>
+
+      <div class="proyectos-layout">
+        <!-- Listado principal de proyectos -->
+        <div class="proyectos-main">
+          <div class="proyecto-card">
+            <h3><a href="https://github.com/luiselodeon/NewsFlash-iOS" target="_blank" rel="noopener noreferrer">Proyecto 1: NewsFlash — iOS News App</a></h3>
+            <p><strong class="text-accent">Aplicación móvil nativa para iOS</strong> que te mantiene informado con las últimas noticias del mundo. Busca sobre cualquier tema que te interese <strong class="text-accent">en tiempo real</strong> gracias a la integración con la <strong class="text-accent">API de NewsAPI.ai</strong> (EventRegistry).</p>
+          </div>
+
+          <div class="proyecto-card">
+            <h3><a href="https://github.com/luiselodeon/PgGuardian" target="_blank" rel="noopener noreferrer">Proyecto 2: PgGuardian</a></h3>
+            <p>PgGuardian es un <strong class="text-accent">producto B2B de auditoría continua</strong> para <strong class="text-accent">PostgreSQL en producción</strong>. Se conecta únicamente de forma de lectura a la base de datos del cliente y entrega un <strong class="text-accent">reporte priorizado con hallazgos accionables</strong> en cinco categorías: índices, bloat, queries problemáticas, configuración y salud general.</p>
+            <br>
+            <p>El producto está dirigido a empresas medianas mexicanas y latinoamericanas que tienen Postgres en producción, pero <strong class="text-accent">carecen de un DBA dedicado</strong>. Estos equipos típicamente tienen 5-50 desarrolladores, una o dos bases de datos críticas, y resuelven problemas de performance reactivamente cuando ya impactaron al cliente.</p>
+          </div>
+
+          <div class="proyecto-card">
+            <h3><a href="https://github.com/luiselodeon/NBA-Intelligence-Platform" target="_blank" rel="noopener noreferrer">Proyecto 3: NBA Intelligence Platform</a></h3>
+            <p>Es un proyecto donde se aplican técnicas de <strong class="text-accent">machine learning y deep learning</strong> para analizar y resolver problemáticas del mundo de la NBA. El proyecto integra datos reales de la <strong class="text-accent">NBA API oficial</strong>, múltiples <strong class="text-accent">modelos predictivos optimizados</strong> con búsqueda de hiperparámetros, seguimiento de experimentos con MLflow, y una <strong class="text-accent">API REST en Flask</strong> que expone los modelos entrenados para consumo externo.</p>
+          </div>
+        </div>
+
+        <!-- Sidebar de tecnologías -->
+        <aside class="sidebar">
+          <h3>Tecnologías</h3>
+          <ul>
+            <li>HTML5 / CSS</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Machine Learning</li>
+            <li>Swift</li>
+            <li>SQL</li>
+            <li>Inteligencia Artificial</li>
+            <li>Ciencia de Datos</li>
+            <li>PostgreSQL</li>
+            <li>Docker</li>
+            <li>Flask</li>
+            <li>MlFlow</li>                        
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <div class="footer-card">
+      <div class="footer-brand">
+        <h2>Luis A. Arias<span class="accent-dot">.</span></h2>
+        <p>Desarrollo web &middot; Ciencia de datos</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/luiselodeon" target="_blank" rel="noopener noreferrer">Github</a></li>
+        <li><a href="https://github.com/luiselodeon/Actividad-4-HTML" target="_blank" rel="noopener noreferrer">Liga a este repositorio</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts: jQuery 3.7.1 y Script Principal Global -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

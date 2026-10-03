@@ -543,6 +543,18 @@ main {
   margin-bottom: 0.6rem;
 }
 
+.proyecto-card h3 a,
+.proyecto-card h3 a:link,
+.proyecto-card h3 a:visited {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.proyecto-card h3 a:hover {
+  color: var(--scarlet);
+}
+
 .proyecto-card p {
   font-size: 1.05rem;
   color: var(--text-body);
