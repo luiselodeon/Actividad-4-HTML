@@ -973,11 +973,12 @@ body.dark-theme .field-error-msg {
 }
 
 /* Botón de envío con gradiente escarlata */
-#formulario button[type="submit"] {
+#formulario button[type="submit"],
+#btnEnviar {
   align-self: flex-start;
   width: 100%;
   background: var(--gradient-scarlet);
-  color: var(--white);
+  color: #FFFFFF;
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 700;
@@ -990,12 +991,14 @@ body.dark-theme .field-error-msg {
   margin-top: 0.5rem;
 }
 
-#formulario button[type="submit"]:hover {
+#formulario button[type="submit"]:hover,
+#btnEnviar:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 32px -6px rgba(184, 20, 36, 0.55);
 }
 
-#formulario button[type="submit"]:active {
+#formulario button[type="submit"]:active,
+#btnEnviar:active {
   transform: translateY(0);
 }
 
@@ -1294,8 +1297,17 @@ body.dark-theme header {
 }
 
 body.dark-mode .btn-primary,
-body.dark-theme .btn-primary {
+body.dark-theme .btn-primary,
+body.dark-mode #formulario button[type="submit"],
+body.dark-theme #formulario button[type="submit"],
+body.dark-mode #btnEnviar,
+body.dark-theme #btnEnviar {
   color: #FFFFFF !important;
+}
+
+body.dark-mode .theme-toggle-btn,
+body.dark-theme .theme-toggle-btn {
+  color: #FFFFFF;
 }
 
 body.dark-mode nav ul li a.active,
