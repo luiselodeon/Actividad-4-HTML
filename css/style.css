@@ -298,19 +298,23 @@ main {
    6. SECCIÓN SOBRE MÍ (#sobre-mi)
    Tarjeta blanca con esquinas curvas de 32px y estructura a 2 columnas.
    -------------------------------------------------------------------------- */
-#sobre-mi {
+#sobre-mi,
+#amigos,
+.sobre-mi-card {
   background: var(--white);
   border-radius: var(--radius-lg);
   padding: 3.5rem;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--border-light);
   display: grid;
-  grid-template-columns: 1fr 1fr;    /* Columna de texto + Columna de carrusel */
+  grid-template-columns: 1fr 1fr;    /* Columna de texto + Columna de carrusel/galeria */
   gap: 3.5rem;
   align-items: center;
 }
 
-#sobre-mi h2 {
+#sobre-mi h2,
+#amigos h2,
+.sobre-mi-card h2 {
   font-family: var(--font-heading);
   font-size: 2.2rem;
   font-weight: 700;
@@ -319,7 +323,9 @@ main {
   margin-bottom: 1.25rem;
 }
 
-#sobre-mi p {
+#sobre-mi p,
+#amigos p,
+.sobre-mi-card p {
   font-size: 1.05rem;
   line-height: 1.7;
   color: var(--text-body);
@@ -986,7 +992,9 @@ footer {
    -------------------------------------------------------------------------- */
 /* Tabletas y pantallas intermedias */
 @media (max-width: 860px) {
-  #sobre-mi {
+  #sobre-mi,
+  #amigos,
+  .sobre-mi-card {
     grid-template-columns: 1fr;       /* Pasa a una sola columna */
     padding: 2.5rem 1.8rem;
     gap: 2.5rem;
@@ -1236,4 +1244,54 @@ body.dark-mode #formulario select option,
 body.dark-theme #formulario select option {
   background-color: var(--surface-input);
   color: var(--ink);
+}
+
+/* Galeria de imagenes hermanas (.img-roy) para demostracion de siblings */
+.gallery-siblings-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.gallery-caption {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.gallery-siblings {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.gallery-siblings .img-roy {
+  width: 100%;
+  height: 220px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid var(--border-light);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  display: block;
+}
+
+.gallery-siblings .img-roy:hover {
+  border-color: var(--scarlet);
+  box-shadow: 0 16px 36px rgba(184, 20, 36, 0.22);
+}
+
+body.dark-mode .gallery-caption,
+body.dark-theme .gallery-caption {
+  color: var(--text-muted);
+}
+
+body.dark-mode .gallery-siblings .img-roy,
+body.dark-theme .gallery-siblings .img-roy {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }

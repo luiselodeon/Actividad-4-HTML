@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8"> <!-- Esto sirve para que el navegador sepa que se está usando UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Esto sirve para que la página se vea bien en dispositivos móviles -->
+  <title>Mi portafolio - Sobre mí</title>
+  <link rel="icon" type="image/png" href="../images/folder.png"> <!-- Esto es el ícono de la pestaña -->
+  <link rel="stylesheet" href="../css/style.css"> <!-- Esto es lo que hace que use los diseños de style.css -->
+</head>
+
+<body>
+
+  <!-- Navegación -->
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo">Luis A. Arias<span class="accent-dot">.</span></a>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html" class="active">Sobre mí</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="formulario.html">Formulario</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema">Modo Oscuro</button>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Sobre Mí -->
+    <section id="sobre-mi" class="sobre-mi-card">
+      <div class="sobre-mi-col-texto">
+        <h2>Sobre mí</h2>
+        <p>Soy una persona que le gusta la programación, la ciencia de datos y la tecnologia. Tengo un perro llamado <strong class="text-accent">Roy</strong> que es raza welsh corgi pembroke.</p>
+
+        <!-- Lista de etiquetas/chips redondeados de especialidades -->
+        <div class="chips-list">
+          <span class="chip">Desarrollo web</span>
+          <span class="chip">Ciencia de datos</span>
+          <span class="chip">Visualización</span>
+        </div>
+      </div>
+
+      <!-- Carrusel y Galería de imágenes -->
+      <div class="carousel-wrapper">
+        <div class="carousel" id="carousel">
+          <!-- Pista de diapositivas superpuestas con transición suave de opacidad -->
+          <div class="carousel-track">
+            <div class="carousel-slide active">
+              <img src="../images/roy.JPG" alt="Roy" class="img-roy">
+            </div>
+            <div class="carousel-slide">
+              <img src="../images/luis.jpeg" alt="Luis" class="img-roy">
+            </div>
+          </div>
+
+          <!-- Botones de control lateral (anterior / siguiente) -->
+          <button class="carousel-arrow prev" id="prevBtn" aria-label="Anterior">&#8249;</button>
+          <button class="carousel-arrow next" id="nextBtn" aria-label="Siguiente">&#8250;</button>
+
+          <!-- Indicadores de puntos inferiores (dots) -->
+          <div class="carousel-dots" id="carouselDots">
+            <button class="dot active" aria-label="Foto 1"></button>
+            <button class="dot" aria-label="Foto 2"></button>
+          </div>
+        </div>        
+      </div>
+    </section>
+
+
+    
+    <!-- Amigos -->
+    <section id="amigos" class="sobre-mi-card">
+      <div class="sobre-mi-col-texto">
+        <h2>Amigos</h2>
+        <p>Soy muy afortunado de poder tener muchos amigos con los cuales pasar el tiempo. Si es que no estoy pasando el tiempo con ellos, probablemente esté jugando videojuegos o juegos de mesa.</p>
+      </div>
+
+      <!-- Galería de imágenes hermanas para demostración interactiva de siblings en jQuery -->
+      <div class="gallery-siblings-container">
+        <p class="gallery-caption">Galería de imágenes (pasa el cursor o da doble clic):</p>
+        <div class="gallery-siblings">
+          <img src="../images/amigos.jpeg" alt="Amigos" class="img-roy" title="Amigos - Pasa el cursor o da doble clic">
+          <img src="../images/juegos.jpeg" alt="Juegos" class="img-roy" title="Juegos - Pasa el cursor o da doble clic">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <div class="footer-card">
+      <div class="footer-brand">
+        <h2>Luis A. Arias<span class="accent-dot">.</span></h2>
+        <p>Desarrollo web &middot; Ciencia de datos</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/luiselodeon" target="_blank" rel="noopener noreferrer">Github</a></li>
+        <li><a href="https://github.com/luiselodeon/Actividad-4-HTML" target="_blank" rel="noopener noreferrer">Liga a este repositorio</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts: jQuery 3.7.1, Script Global y Script del Carrusel -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/carrusel.js"></script>
+</body>
+
+</html>
